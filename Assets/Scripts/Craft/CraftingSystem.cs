@@ -11,7 +11,7 @@ public class CraftingSystem : MonoBehaviour
     [SerializeField] CraftItemUI resultItem;
 
     public UnityEvent<InventoryItem> OnCraftSuccesful;
-    public UnityEvent<InventoryItem> OnCraftFail;
+    public UnityEvent OnCraftFail;
 
     public UnityEvent<InventoryItem> OnReturnToinventory;
 
@@ -34,14 +34,28 @@ public class CraftingSystem : MonoBehaviour
         {
             if (ItemsMatched(itemsUsed, recipe))
             {
-                Debug.Log("Craft succesful of " + recipe.Result);
-                OnCraftSuccesful.Invoke(new InventoryItem()
+                if(RecipeSuccess(recipe))
                 {
-                    ItemData = recipe.Result
-                });
+                    Debug.Log("Craft succesful of " + recipe.Result);
+                    OnCraftSuccesful.Invoke(new InventoryItem()
+                    {
+                        ItemData = recipe.Result
+                    });
+                }
+                else
+                {
+                    OnCraftFail.Invoke();
+                }
+
             }
 
         }
+    }
+
+    private bool RecipeSuccess(CraftingRecipe recipe)
+    {
+        var random = Random.Range(0, 100);
+        return random <= recipe.PercentageChanceSuccess;
     }
 
     public void AssignItem(InventoryItem item)

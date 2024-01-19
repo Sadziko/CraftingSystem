@@ -16,3 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0110109d6aee611478bb5e6e77ff5c18, type: 2}
   - {fileID: 11400000, guid: 0110109d6aee611478bb5e6e77ff5c18, type: 2}
   Result: {fileID: 11400000, guid: 2b22754769d83ef47a6ae38d54b13c7e, type: 2}
+  PercentageChanceSuccess: 69
