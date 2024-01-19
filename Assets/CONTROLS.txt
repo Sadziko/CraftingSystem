@@ -1,0 +1,9 @@
+CONTROLS:
+Movement: WASD/Arrows
+Collect item from source: G
+Open equipment: E
+
+-Dropped items pick themself up automaticly
+-Hovering item in inventory panel shows 2 buttons: Drop and Add to craft
+-When Item is added to craft panel, you can hover over it to show Return to inventory button (same icon as drop)
+-When 2 Items are added to craft panel you can press button in the middle to give crafting a try, depending on the result correct particle system will play
