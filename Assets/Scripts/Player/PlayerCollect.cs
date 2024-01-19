@@ -4,21 +4,27 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerCollect : MonoBehaviour
 {
+    [Header("Config")]
     [SerializeField] float collectRadius = 5f;
     [SerializeField] LayerMask collectLayerMasks;
 
+    [Header("Events")]
     [SerializeField] UnityEvent<ItemData> OnItemCollected;
 
     [SerializeField] bool debug;
 
+    public void OnCollectInput(CallbackContext callbackContext)
+    {
+        if (callbackContext.phase != UnityEngine.InputSystem.InputActionPhase.Started) return;
+
+        CollectFromNearbySources();
+    }
 
     /// <summary>
     /// Collect items from sources in radius
     /// </summary>
-    public void Collect(CallbackContext callbackContext)
+    private void CollectFromNearbySources()
     {
-        if (callbackContext.phase != UnityEngine.InputSystem.InputActionPhase.Started) return;
-
         var colliders = Physics.OverlapSphere(transform.position, collectRadius, collectLayerMasks);
         foreach (var collider in colliders)
         {
@@ -38,7 +44,6 @@ public class PlayerCollect : MonoBehaviour
     {
         if(other.TryGetComponent(out WorldItem item))
         {
-            Debug.Log("Collect world item");
             OnItemCollected.Invoke(item.ItemData);
             item.OnPickup();
         }

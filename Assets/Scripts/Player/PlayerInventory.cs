@@ -7,9 +7,21 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInventory : MonoBehaviour
 {
-     public List<InventoryItem> items = new List<InventoryItem>();
+     public List<InventoryItem> items = new List<InventoryItem>();    
+    [SerializeField] GameObject EquipmentGameObject;
 
-    public UnityEvent<InventoryItem> OnItemAdd; 
+    [Header("Config")]
+    [SerializeField] float throwForce = 5f;
+
+    [Header("Events")]
+    public UnityEvent<InventoryItem> OnItemAdd;
+
+    public void OnEquipmentInput(CallbackContext callbackContext)
+    {
+        if (callbackContext.phase != UnityEngine.InputSystem.InputActionPhase.Started) return;
+
+        EquipmentGameObject.SetActive(!EquipmentGameObject.activeInHierarchy);
+    }
 
     public void AddToInventory(ItemData item)
     {
@@ -30,9 +42,10 @@ public class PlayerInventory : MonoBehaviour
 
     public void ThrowItem(ItemData item)
     {
-        var go = Instantiate(item.prefabWorld, transform.position + new Vector3(0,0,2), Quaternion.identity);
+        //spawn with offset to prevent instant pickup
+        var go = Instantiate(item.prefabWorld, transform.position + Vector3.forward * 2f, Quaternion.identity);
 
-        go.GetComponent<Rigidbody>().AddForce(Vector3.forward * 5f, ForceMode.Impulse);
+        go.GetComponent<Rigidbody>().AddForce(Vector3.forward * throwForce, ForceMode.Impulse);
     }
 }
 
