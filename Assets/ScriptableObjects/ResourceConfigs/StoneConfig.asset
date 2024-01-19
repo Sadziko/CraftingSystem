@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9785bc1edfd2ded478b0b51267daa567, type: 3}
   m_Name: StoneConfig
   m_EditorClassIdentifier: 
-  resourceType: {fileID: 11400000, guid: 88058726c6eaef846ae85283e2f4f634, type: 2}
-  minAmountToObtain: 1
-  maxAmountToObtain: 1
+  itemToDrop: {fileID: 11400000, guid: afbd174e8ab2eeb418a57934163966bb, type: 2}

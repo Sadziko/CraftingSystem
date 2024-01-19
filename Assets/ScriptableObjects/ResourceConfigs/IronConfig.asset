@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9785bc1edfd2ded478b0b51267daa567, type: 3}
   m_Name: IronConfig
   m_EditorClassIdentifier: 
-  resourceType: {fileID: 11400000, guid: ad4dc36ab44949c4c92c567437887e6b, type: 2}
-  minAmountToObtain: 1
-  maxAmountToObtain: 1
+  itemToDrop: {fileID: 11400000, guid: 89eef56ced5add043a6a2899587b9f5d, type: 2}
