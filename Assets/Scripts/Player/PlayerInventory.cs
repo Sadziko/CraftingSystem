@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using static UnityEditor.Progress;
 using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInventory : MonoBehaviour
@@ -14,10 +13,12 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] GameObject EquipmentGameObject;
 
     [Header("Config")]
-    [SerializeField] float throwForce = 5f;
+    [SerializeField] float maxCapacity;
+    [SerializeField] float throwForceOnDrop = 5f;
 
     [Header("Events")]
     public UnityEvent<InventoryItem> OnItemAdd;
+
 
     public void OnEquipmentInput(CallbackContext callbackContext)
     {
@@ -28,6 +29,8 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddToInventory(ItemData item)
     {
+        if (items.Count >= maxCapacity) return;
+
         var inventoryItem = new InventoryItem()
         {
             ItemData = item
@@ -60,6 +63,6 @@ public class PlayerInventory : MonoBehaviour
     {
         //spawn with offset to prevent instant pickup
         var go = Instantiate(prefab, transform.position + Vector3.forward * 2f, Quaternion.identity);
-        go.GetComponent<Rigidbody>().AddForce(Vector3.forward * throwForce, ForceMode.Impulse);
+        go.GetComponent<Rigidbody>().AddForce(Vector3.forward * throwForceOnDrop, ForceMode.Impulse);
     }
 }

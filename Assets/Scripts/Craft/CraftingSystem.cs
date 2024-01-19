@@ -61,6 +61,8 @@ public class CraftingSystem : MonoBehaviour
     public void AssignItem(InventoryItem item)
     {
         var emptySlot = GetFirstEmptySlot();
+        if (emptySlot == null)
+            return;
         emptySlot.AssignItem(item);
     }
 
