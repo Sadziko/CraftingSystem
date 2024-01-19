@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4cf42abb7a13ad44b79b9cb7290616e, type: 3}
-  m_Name: IronItem
+  m_Name: StoneAxe
   m_EditorClassIdentifier: 
-  ID: 3
-  Name: 
-  Icon: {fileID: 0}
-  prefabWorld: {fileID: 0}
+  ID: 5
+  Name: Stone axe
+  Icon: {fileID: 903936104, guid: d758ff13b843a8f4f999ac3564e93362, type: 3}
+  prefabWorld: {fileID: 284831524944887697, guid: 34161a8ce7b9f5441b92e740f3529b02, type: 3}

@@ -14,6 +14,8 @@ public class CraftItemUI : ItemUI
 
     public void ReturnToInventory()
     {
+        if (_craftingSystem == null) return;
+
         _craftingSystem.ReturnToInventory(ItemStored);
         RemoveItem();
     }

@@ -7,21 +7,22 @@ public class InventoryItemUI : ItemUI
 
     private void Awake()
     {
-        if(_defaultSprite != null)
-        {
-            SetSprite(_defaultSprite);
-        }
-        else
-        {
-            _defaultSprite = _sprite.sprite;
-        }
-
         _inventoryPanel = GetComponentInParent<InventoryUIPanel>();
     }
 
 
+    public void Dropitem()
+    {
+        if (_inventoryPanel == null) return;
+
+        _inventoryPanel.DropItem(ItemStored);
+        RemoveItem();
+    }
+
     public void MoveToCraft()
     {
+        if (_inventoryPanel == null) return;
+
         _inventoryPanel.MoveItemToCraft(this);
         RemoveItem();
     }

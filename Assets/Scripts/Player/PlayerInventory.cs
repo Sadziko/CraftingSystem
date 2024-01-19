@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,6 @@ public class PlayerInventory : MonoBehaviour
 {
      public List<InventoryItem> items = new List<InventoryItem>();    
     [SerializeField] GameObject EquipmentGameObject;
-    [SerializeField] CraftingSystem craftingSys;
 
     [Header("Config")]
     [SerializeField] float throwForce = 5f;
@@ -64,11 +62,4 @@ public class PlayerInventory : MonoBehaviour
         var go = Instantiate(prefab, transform.position + Vector3.forward * 2f, Quaternion.identity);
         go.GetComponent<Rigidbody>().AddForce(Vector3.forward * throwForce, ForceMode.Impulse);
     }
-}
-
-
-[Serializable]
-public class InventoryItem
-{
-    public ItemData ItemData;
 }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c56cab45515ee004595c61373dd9efed, type: 3}
-  m_Name: PlankRecipe
+  m_Name: StoneAxeRecipe
   m_EditorClassIdentifier: 
   Ingredients:
-  - {fileID: 11400000, guid: 0110109d6aee611478bb5e6e77ff5c18, type: 2}
-  - {fileID: 11400000, guid: 0110109d6aee611478bb5e6e77ff5c18, type: 2}
-  Result: {fileID: 11400000, guid: 2b22754769d83ef47a6ae38d54b13c7e, type: 2}
-  PercentageChanceSuccess: 90
+  - {fileID: 11400000, guid: 2b22754769d83ef47a6ae38d54b13c7e, type: 2}
+  - {fileID: 11400000, guid: afbd174e8ab2eeb418a57934163966bb, type: 2}
+  Result: {fileID: 11400000, guid: 92900ac789ab1ef4d9947ae3bcc9f861, type: 2}
+  PercentageChanceSuccess: 80

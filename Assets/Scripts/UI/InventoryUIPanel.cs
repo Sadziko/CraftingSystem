@@ -17,14 +17,9 @@ public class InventoryUIPanel : MonoBehaviour
         var emptySlot = GetFirstEmptySlot();
         emptySlot.AssignItem(item);
     }
-    
-    public void RemoveItem(InventoryItem item)
-    {
-    }
 
     public void DropItem(InventoryItem item)
     {
-        RemoveItem(item);
         OnItemDrop.Invoke(item);
     }
 

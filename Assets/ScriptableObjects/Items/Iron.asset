@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4cf42abb7a13ad44b79b9cb7290616e, type: 3}
-  m_Name: WoodItem
+  m_Name: Iron
   m_EditorClassIdentifier: 
-  ID: 1
-  Name: Wood
-  Icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  prefabWorld: {fileID: 5447739376747558579, guid: 7285fd5eada0936498a6106c7c976fc0, type: 3}
+  ID: 3
+  Name: Iron
+  Icon: {fileID: -1372983087, guid: d758ff13b843a8f4f999ac3564e93362, type: 3}
+  prefabWorld: {fileID: 284831524944887697, guid: 8556bb212310091428ad5e910ae75bd8, type: 3}
