@@ -1,18 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 
-public class InventoryItemUI : MonoBehaviour
+public class InventoryItemUI : ItemUI
 {
-    InventoryItem _itemStored;
-
-    private bool _isEmpty = true;
-    public bool IsEmpty => _isEmpty;
-
-    [SerializeField] private Image _sprite;
-    [SerializeField] Sprite _defaultSprite;
-    InventoryPanel _inventoryPanel;
+    InventoryUIPanel _inventoryPanel;
 
     private void Awake()
     {
@@ -25,27 +16,15 @@ public class InventoryItemUI : MonoBehaviour
             _defaultSprite = _sprite.sprite;
         }
 
-        _inventoryPanel = GetComponentInParent<InventoryPanel>();
+        _inventoryPanel = GetComponentInParent<InventoryUIPanel>();
     }
 
-    public void AssignItem(InventoryItem item)
+
+    public void MoveToCraft()
     {
-        _itemStored = item;
-        _isEmpty = false;
-        SetSprite(item.ItemData.Icon);
+        _inventoryPanel.MoveItemToCraft(this);
+        RemoveItem();
     }
 
-    public void RemoveItem()
-    {
-        _inventoryPanel.RemoveItem(_itemStored);
-        _isEmpty = true;
-        _itemStored = null;
-        SetSprite(_defaultSprite);
-    }
-
-    public void SetSprite(Sprite sprite)
-    {
-        _sprite.sprite = sprite;
-    }
 
 }

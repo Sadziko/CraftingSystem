@@ -1,29 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InventoryPanel : MonoBehaviour
+public class InventoryUIPanel : MonoBehaviour
 {
     [SerializeField]List<InventoryItemUI> inventoryItems;
 
-    public UnityEvent<InventoryItem> OnItemRemoved;
-
-    private void OnEnable()
-    {
-        
-    }
+    public UnityEvent<InventoryItem> OnItemDrop;
+    public UnityEvent<InventoryItem> OnItemCraftClick; 
 
     public void AssignItem(InventoryItem item)
     {
         var emptySlot = GetFirstEmptySlot();
         emptySlot.AssignItem(item);
     }
-
+    
     public void RemoveItem(InventoryItem item)
     {
-        OnItemRemoved.Invoke(item);
+    }
+
+    public void DropItem(InventoryItem item)
+    {
+        RemoveItem(item);
+        OnItemDrop.Invoke(item);
     }
 
     /// <summary>
@@ -33,5 +35,10 @@ public class InventoryPanel : MonoBehaviour
     public InventoryItemUI GetFirstEmptySlot()
     {
         return inventoryItems.Where(x => x.IsEmpty).FirstOrDefault();
+    }
+
+    public void MoveItemToCraft(InventoryItemUI item)
+    {
+        OnItemCraftClick.Invoke(item.ItemStored);
     }
 }

@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4cf42abb7a13ad44b79b9cb7290616e, type: 3}
-  m_Name: IronItem
+  m_Script: {fileID: 11500000, guid: c1e1bbdb20e02254c9866e2f343377d6, type: 3}
+  m_Name: RecipesList
   m_EditorClassIdentifier: 
-  ID: 3
-  Name: 
-  Icon: {fileID: 0}
-  prefabWorld: {fileID: 0}
+  craftingRecipes:
+  - {fileID: 11400000, guid: 07125dad6fcfde9488a6abccc060e50d, type: 2}

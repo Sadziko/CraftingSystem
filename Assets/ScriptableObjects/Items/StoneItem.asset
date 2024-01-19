@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cf42abb7a13ad44b79b9cb7290616e, type: 3}
   m_Name: StoneItem
   m_EditorClassIdentifier: 
+  ID: 2
   Name: 
   Icon: {fileID: 0}
   prefabWorld: {fileID: 0}
